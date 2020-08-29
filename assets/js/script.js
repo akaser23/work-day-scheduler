@@ -11,9 +11,13 @@ var loadedTasks = localStorage.getItem('task');
 
 loadedTasks = JSON.parse(loadedTasks);
 
-$(".text-box").each(function (index) {
-  $(this).text(loadedTasks[index])  
-})
+if (loadedTasks === null) {
+}
+else {
+    $(".text-box").each(function (index) {
+        $(this).text(loadedTasks[index])
+    })
+}
 
 $('.edit-task').on("click", function () {
     var text = $(this).children("p")
@@ -61,7 +65,7 @@ function saveTask() {
     for (var i = 0; i < $(".text-box").length; i++) {
         taskText.push($(".text-box")[i].innerHTML);
     }
-    
+
     localStorage.setItem("task", JSON.stringify(taskText));
 }
 
