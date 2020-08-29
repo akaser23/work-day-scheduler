@@ -73,9 +73,14 @@ textarea{
  .text-box {
   width: 100%;
   position: relative;
+  color: black;
 } 
 
 .hour-time {
   display: none;
+}
+
+p {
+  /* padding: 10px; */
 }
 

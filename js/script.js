@@ -1,16 +1,28 @@
 var currentDate = moment().format('MMMM Do YYYY');
 
+var hour = moment().format("HH");
+
+var pastthings = $('.hour-time');
+
 console.log(currentDate);
 $('#currentDay').text(currentDate);
 
-$('.edit-task').on("click", "p", function () {
-    var text = $(this)
+var loadedTasks = localStorage.getItem('task');
+
+loadedTasks = JSON.parse(loadedTasks);
+
+$(".text-box").each(function (index) {
+  $(this).text(loadedTasks[index])  
+})
+
+$('.edit-task').on("click", function () {
+    var text = $(this).children("p")
         .text()
         .trim();
     var textInput = $('<textarea>')
         .addClass("text-box")
         .val(text);
-    $(this).replaceWith(textInput);
+    $(this).children("p").replaceWith(textInput);
     textInput.trigger('focus');
 });
 
@@ -24,30 +36,32 @@ $(".edit-task").on('blur', 'textarea', function () {
         .text(text);
 
     $(this).replaceWith(taskP);
+    saveTask();
 })
 
-var hour = moment().format("HH");
-console.log(hour);
+$('.saveBtn').on('click', saveTask);
 
-var pastthings = $('.hour-time')
-console.log(pastthings)
-
-pastthings.each(function( index ) {
-    console.log( index + ": " + $( this ).text() );
+pastthings.each(function (index) {
+    // console.log(index + ": " + $(this).text());
     let timeBlock = parseInt($(this).text());
-    if(timeBlock < hour)
-    {
-        console.log("Should be past");
+    if (timeBlock < hour) {
         $(this).parent().addClass("past");
     }
-    else if(timeBlock > hour)
-    {
-        console.log("Should be future");
+    else if (timeBlock > hour) {
         $(this).parent().addClass("future");
     }
-    else
-    {
-        console.log("Right now!");
+    else {
         $(this).parent().addClass("present");
     }
-  });
+});
+
+function saveTask() {
+    var taskText = []
+
+    for (var i = 0; i < $(".text-box").length; i++) {
+        taskText.push($(".text-box")[i].innerHTML);
+    }
+    
+    localStorage.setItem("task", JSON.stringify(taskText));
+}
+
