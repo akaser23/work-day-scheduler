@@ -7,3 +7,4 @@ In building this application, first I focused on Bootstrap Grid to create my tim
 ![alt text](https://github.com/akaser23/work-day-scheduler/blob/master/readme%20gif%20of%20app.gif?raw=true)
 
 ## Link to Deployed Application
+https://akaser23.github.io/work-day-scheduler/
