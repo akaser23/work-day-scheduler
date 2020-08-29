@@ -1,6 +1,9 @@
 # work-day-scheduler
 
-## Screens
-![image](https://user-images.githubusercontent.com/68572717/91647492-8e8de500-ea18-11ea-85dd-4f312190a601.png)
+## Description
+In building this application, first I focused on Bootstrap Grid to create my time block elements. This required editing custom Css and applying existing css rules to my columns or rows. Then I began with Javascript and Jquery. Using moment.js I displayed the current date at the top of the page. Next I focused on the editing elements and setting/geting the saved data. Lastly, I incorporated the color change by  using moment.js and a jquery each statement. 
 
-https://drive.google.com/file/d/1hmx3oeKk0ds6H2WidHPJACZX6KY9Ik8S/view
+## Screen Gif
+![alt text](https://github.com/akaser23/work-day-scheduler/blob/master/readme%20gif%20of%20app.gif?raw=true)
+
+## Link to Deployed Application
